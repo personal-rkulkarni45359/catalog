@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zLy+js7zISyi5SD+Djaj7hgIPQtEtWOXggQzvDkiIoeU7cuqG11mHJQbRI2jq/0mLhXKUgFs/8JPkOQh8YtLzA==",
+  "dgSpecHash": "2L7WtuILjvimEWuKQ/dzlongfU9mNug7+IZGn/NtuH4Zhzv2QJI5qMuoqqC+Bqqpe4niTa1zsTbAsgxMY+nIBA==",
   "success": true,
-  "projectFilePath": "/home/r4770/dotnet/dotnet.csproj",
+  "projectFilePath": "/home/r4770/dev/cshrap/catalog/dotnet.csproj",
   "expectedPackageFiles": [
     "/home/r4770/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "/home/r4770/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",

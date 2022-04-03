@@ -198,11 +198,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/r4770/dotnet/dotnet.csproj",
+      "projectUniqueName": "/home/r4770/dev/cshrap/catalog/dotnet.csproj",
       "projectName": "dotnet",
-      "projectPath": "/home/r4770/dotnet/dotnet.csproj",
+      "projectPath": "/home/r4770/dev/cshrap/catalog/dotnet.csproj",
       "packagesPath": "/home/r4770/.nuget/packages/",
-      "outputPath": "/home/r4770/dotnet/obj/",
+      "outputPath": "/home/r4770/dev/cshrap/catalog/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/r4770/.nuget/NuGet/NuGet.Config"
