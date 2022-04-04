@@ -1,39 +1,42 @@
+using System.Linq;
+using System.Collections.Generic;
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Catalog.Repositories;
-using System.Collections.Generic;
-using Catalog.Entitles;
+using Catalog.Dtos;
 
-namespace catalog.Controllers
+namespace Catalog.Controllers
 {
     [ApiController]
     [Route("items")]
      public class ItemsController : ControllerBase
     {
-        private readonly InMemItemsRepository respostiory;
+        private readonly IItemsRepository respostiory;
 
-        public ItemsController()
+        public ItemsController(IItemsRepository repository)
         {
-            respostiory = new InMemItemsRepository(); 
+            this.respostiory = repository; 
         }
 
 
         [HttpGet]
-        public IEnumerable<Item> GetItems()
+        public IEnumerable<ItemDto> GetItems()
         {
-            return respostiory.GetItems();
-        }
+            var items=respostiory.GetItems().Select(item => item.AsDto());
+                
+            return items;
+        } 
 
         [HttpGet("{id}")]
-        public ActionResult<Item> GetItem(Guid id)
+        public ActionResult<ItemDto> GetItem(Guid id)
         {
-            var item= respostiory.GetItem( id); 
+            var item = respostiory.GetItem( id);
 
             if(item is null)
             {
                 return NotFound();
             }
-            return item;
+            return item.AsDto();
         }
 
 
