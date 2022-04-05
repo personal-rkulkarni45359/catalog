@@ -4,6 +4,7 @@ using System;
 using Microsoft.AspNetCore.Mvc;
 using Catalog.Repositories;
 using Catalog.Dtos;
+using Catalog.Entitles;
 
 namespace Catalog.Controllers
 {
@@ -37,6 +38,65 @@ namespace Catalog.Controllers
                 return NotFound();
             }
             return item.AsDto();
+        }
+
+        //postw with items 
+        [HttpPost]
+        public ActionResult<ItemDto>CreateItem(CreateItemDto itemDto)
+        {
+            Item item = new ()
+            {
+                ID = Guid.NewGuid(), 
+                Name =itemDto.Name,
+                Price = itemDto.Price,
+                CreatedDate  = DateTimeOffset.UtcNow
+            };
+
+            respostiory.CreateItem(item);
+            return CreatedAtAction(nameof(GetItem), new {id = item.ID}, item.AsDto() );
+
+        }
+
+        // put into /items/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateItem(Guid id, UpdateItemDto itemDto)
+        {
+            var exsitingItem = respostiory.GetItem(id); 
+            
+            if(exsitingItem is null)
+            {
+                return NotFound(); 
+            }
+
+            Item updatedItem = exsitingItem with {
+
+                Name = itemDto.Name,
+                Price = itemDto.Price
+
+            };
+
+            respostiory.UpdateItem(updatedItem); 
+
+            return NoContent(); 
+        }
+
+        //DELETE /items/ {id}
+        [HttpDelete("{id}")]
+
+        public ActionResult DeleteItem(Guid id) 
+        {
+             var exsitingItem = respostiory.GetItem(id); 
+            
+            if(exsitingItem is null)
+            {
+                return NotFound(); 
+            }
+
+            respostiory.DeleteItem(id); 
+
+            return NoContent(); 
+
+
         }
 
 
