@@ -3,11 +3,12 @@ using Catalog.Entitles;
 using System.Collections.Generic;
 using MongoDB.Driver;
 using MongoDB.Bson;
-using Catalog.Entitles;
-using MongoDB.Bson.Serialization;
+
 
 //to run docker mongo image
-//docker run -d --rm--name mongo -p 27018:27017 -v mongodbdata:/data/db mongo
+//docker run -d --rm --name mongo -p 27018:27017 -v mongodbdata:/data/db mongo
+//sudo chmod 666 /var/run/docker.sock
+
 namespace  Catalog.Repositories
 {
 

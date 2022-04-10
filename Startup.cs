@@ -18,6 +18,7 @@ using Catalog.Settings;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Bson;
+using System.Data.SqlClient;
 
 namespace dotnet
 {
@@ -37,16 +38,26 @@ namespace dotnet
              BsonSerializer.RegisterSerializer(new DateTimeOffsetSerializer(BsonType.String));
 
 
+             //For mongo 
             services.AddSingleton<IMongoClient>(ServiceProvider =>
             {
                 var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
                 return new MongoClient(settings.ConnectionString);
 
             });
+            //for SQL
+             services.AddSingleton<SqlConnection>(ServiceProvider =>
+            {
+               string connectionString =  @"server=localhost:3306;database=catalog;uid=ryan;pwd=rjKalk1@;";
+
+                return new SqlConnection(connectionString);
+            });
 
             //toggle between which memory source you wanna use 
             //services.AddSingleton<IItemsRepository, InMemItemsRepository>();
-            services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
+            //services.AddSingleton<IItemsRepository, MongoDbItemsRepository>();
+            services.AddSingleton<IItemsRepository, SQLDbItemRespository>();
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

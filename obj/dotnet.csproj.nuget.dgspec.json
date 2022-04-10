@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/r4770/dev/cshrap/catalog/dotnet.csproj": {}
+    "/home/r4770/dev/csharp/catalog/dotnet.csproj": {}
   },
   "projects": {
-    "/home/r4770/dev/cshrap/catalog/dotnet.csproj": {
+    "/home/r4770/dev/csharp/catalog/dotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/r4770/dev/cshrap/catalog/dotnet.csproj",
+        "projectUniqueName": "/home/r4770/dev/csharp/catalog/dotnet.csproj",
         "projectName": "dotnet",
-        "projectPath": "/home/r4770/dev/cshrap/catalog/dotnet.csproj",
+        "projectPath": "/home/r4770/dev/csharp/catalog/dotnet.csproj",
         "packagesPath": "/home/r4770/.nuget/packages/",
-        "outputPath": "/home/r4770/dev/cshrap/catalog/obj/",
+        "outputPath": "/home/r4770/dev/csharp/catalog/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/r4770/.nuget/NuGet/NuGet.Config"
@@ -45,6 +45,14 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "iTextSharp": {
+              "target": "Package",
+              "version": "[5.5.13.3, )"
             }
           },
           "imports": [
